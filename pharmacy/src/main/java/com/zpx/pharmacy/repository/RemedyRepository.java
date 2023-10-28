@@ -1,4 +1,4 @@
-package com.zpx.repository;
+package com.zpx.pharmacy.repository;
 
 import com.zpx.pharmacy.model.Remedio;
 
