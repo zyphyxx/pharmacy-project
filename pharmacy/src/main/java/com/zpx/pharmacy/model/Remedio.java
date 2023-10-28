@@ -6,6 +6,8 @@ import com.zpx.pharmacy.enums.Via;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "remedio")
 @Getter
@@ -25,7 +27,6 @@ public class Remedio {
 
     }
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,8 +35,8 @@ public class Remedio {
     private Via via;
 
     private String lote;
-    private String quantidade;
-    private String validade;
+    private int quantidade;
+    private LocalDate validade;
 
     @Enumerated(EnumType.STRING)
     private Laboratorio laboratorio;
