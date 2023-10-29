@@ -5,7 +5,7 @@ import com.zpx.pharmacy.enums.Via;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+
 
 import java.time.LocalDate;
 
@@ -19,7 +19,7 @@ public record DadosCadastroRemedio(
         @NotBlank
         String lote,
 
-        int quantidade,
+        Integer quantidade,
 
         @Future
         LocalDate validade,

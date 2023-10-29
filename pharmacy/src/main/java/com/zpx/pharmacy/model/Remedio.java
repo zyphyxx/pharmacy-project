@@ -1,9 +1,11 @@
 package com.zpx.pharmacy.model;
 
+import com.zpx.pharmacy.dto.DadosAtualizarRemedio;
 import com.zpx.pharmacy.dto.DadosCadastroRemedio;
 import com.zpx.pharmacy.enums.Laboratorio;
 import com.zpx.pharmacy.enums.Via;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -30,15 +32,38 @@ public class Remedio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
     private String nome;
+
     @Enumerated(EnumType.STRING)
     private Via via;
 
     private String lote;
-    private int quantidade;
+    private Integer quantidade;
     private LocalDate validade;
 
     @Enumerated(EnumType.STRING)
     private Laboratorio laboratorio;
 
+    public void atualizarInformacoes(@Valid DadosAtualizarRemedio dados) {
+        if (dados.nome() != null){
+            this.nome = dados.nome();
+        }
+        if (dados.via() != null){
+            this.via = dados.via();
+        }
+        if (dados.lote() != null){
+            this.lote = dados.lote();
+        }
+        if (dados.quantidade() != 0) {
+            this.quantidade = dados.quantidade();
+        }
+        if (dados.validade() != null){
+            this.validade = dados.validade();
+        }
+        if (dados.laboratorio() != null){
+            this.laboratorio = dados.laboratorio();
+        }
+    }
 }
